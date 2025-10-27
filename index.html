@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Bagian <head> berisi metadata dan pengaturan awal halaman -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Penduduk Kabupaten Ngawi 2024</title>
+
+    <!-- Menghubungkan pustaka Chart.js dari CDN agar bisa menampilkan grafik -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* ====== BAGIAN STYLING (CSS) ====== */
+
+        /* Pengaturan tampilan umum halaman */
+        body {
+            font-family: 'Segoe UI', sans-serif; /* jenis huruf */
+            background: linear-gradient(to bottom right, #001f3f, #ffd700); /* gradasi biru ke emas */
+            color: #fff; /* teks berwarna putih */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ====== HEADER (bagian atas halaman) ====== */
+        header {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6); /* hitam transparan */
+            padding: 20px 0;
+            border-bottom: 2px solid #ffd700; /* garis emas di bawah header */
+        }
+
+        /* Gaya untuk gambar/logo di header */
+        header img {
+            max-width: 10%;
+            height: auto;
+            vertical-align: middle;
+            margin: 0 20px;
+            object-fit: contain;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.1); /* latar lembut di belakang logo */
+            padding: 5px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); /* efek bayangan */
+            transition: transform 0.3s ease; /* efek animasi saat hover */
+        }
+
+        /* Efek membesar saat kursor diarahkan ke logo */
+        header img:hover {
+            transform: scale(1.08);
+        }
+
+        /* Judul besar di header */
+        header h1 {
+            font-size: 26px;
+            color: #ffd700; /* warna emas */
+            margin: 10px 0;
+        }
+
+        /* ====== TABEL DATA ====== */
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: rgba(0, 0, 0, 0.7); /* hitam transparan */
+            border: 2px solid #ffd700; /* garis emas di tepi tabel */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* efek bayangan */
+        }
+
+        /* Pengaturan sel tabel */
+        th, td {
+            padding: 10px 15px;
+            text-align: center;
+        }
+
+        /* Warna header kolom tabel */
+        th {
+            background-color: #ffd700; /* latar emas */
+            color: #001f3f; /* teks biru tua */
+        }
+
+        /* Baris genap diberi latar berbeda agar mudah dibaca */
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Efek hover pada baris tabel */
+        tr:hover {
+            background-color: rgba(255, 215, 0, 0.2);
+        }
+
+        /* ====== KONTAINER GRAFIK ====== */
+        .chart-container {
+            width: 90%;
+            margin: 40px auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+            padding: 20px;
+        }
+
+        /* ====== BAGIAN IDENTITAS PEMBUAT ====== */
+        .creator {
+            text-align: center;
+            margin-top: 30px;
+            color: #ffd700;
+            font-weight: bold;
+            animation: glow 2s infinite alternate;
+        }
+
+        /* Animasi efek cahaya pada teks */
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #ffd700; }
+            to { text-shadow: 0 0 20px #fff; }
+        }
+
+        /* ====== FOOTER (bagian bawah halaman) ====== */
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            color: #ffd700;
+            padding: 15px;
+            margin-top: 40px;
+            border-top: 2px solid #ffd700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ====== HEADER (LOGO DAN JUDUL) ====== -->
+    <header>
+        <!-- Logo Kabupaten Ngawi -->
+        <img src="logo ngawi.PNG" alt="logo ngawi">
+        <!-- Logo Universitas Gadjah Mada -->
+        <img src="logo ugm.PNG" alt="logo ugm">
+        <!-- Judul halaman -->
+        <h1>Jumlah Penduduk Menurut Kecamatan<br>Kabupaten Ngawi Tahun 2024</h1>
+    </header>
+
+    <!-- ====== TABEL DATA PENDUDUK ====== -->
+    <table>
+        <thead>
+            <!-- Baris judul kolom -->
+            <tr>
+                <th>No</th>
+                <th>Kecamatan</th>
+                <th>Jumlah Penduduk (Jiwa)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Baris data tiap kecamatan -->
+            <tr><td>1</td><td>Sine</td><td>47,076</td></tr>
+            <tr><td>2</td><td>Ngrambe</td><td>44,464</td></tr>
+            <tr><td>3</td><td>Jogorogo</td><td>45,150</td></tr>
+            <tr><td>4</td><td>Kendal</td><td>37,951</td></tr>
+            <tr><td>5</td><td>Geneng</td><td>55,879</td></tr>
+            <tr><td>6</td><td>Gerih</td><td>52,100</td></tr>
+            <tr><td>7</td><td>Ngawi</td><td>68,350</td></tr>
+            <tr><td>8</td><td>Paron</td><td>64,520</td></tr>
+            <tr><td>9</td><td>Pitu</td><td>40,165</td></tr>
+            <tr><td>10</td><td>Widodaren</td><td>49,870</td></tr>
+            <tr><td>11</td><td>Karanganyar</td><td>48,700</td></tr>
+            <tr><td>12</td><td>Kedunggalar</td><td>50,400</td></tr>
+            <tr><td>13</td><td>Padas</td><td>42,800</td></tr>
+            <tr><td>14</td><td>Bringin</td><td>41,050</td></tr>
+            <tr><td>15</td><td>Pangkur</td><td>39,880</td></tr>
+            <tr><td>16</td><td>Kwadungan</td><td>43,500</td></tr>
+            <tr><td>17</td><td>Karangjati</td><td>45,320</td></tr>
+            <tr><td>18</td><td>Kasreman</td><td>34,890</td></tr>
+            <tr><td>19</td><td>Ngraho</td><td>33,937</td></tr>
+        </tbody>
+        <tfoot>
+            <!-- Baris total di bagian bawah tabel -->
+            <tr>
+                <th colspan="2">Jumlah Total</th>
+                <th>907,002 Jiwa</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- ====== KONTAINER UNTUK GRAFIK CHART.JS ====== -->
+    <div class="chart-container">
+        <h2 style="text-align:center; color:#ffd700;">Visualisasi Jumlah Penduduk per Kecamatan</h2>
+        <!-- Elemen canvas tempat Chart.js menggambar grafik -->
+        <canvas id="pendudukChart"></canvas>
+    </div>
+
+    <!-- ====== BAGIAN PEMBUAT ====== -->
+    <div class="creator">
+        <p>Dibuat oleh <b>Muhammad Ikhwan Miftahul Huda</b></p>
+    </div>
+
+    <!-- ====== FOOTER (catatan dan hak cipta) ====== -->
+    <footer>
+        © 2024 | Data Statistik Penduduk Kabupaten Ngawi <br>
+        Fakultas Geografi - Universitas Gadjah Mada
+    </footer>
+
+    <!-- ====== SCRIPT JAVASCRIPT UNTUK GRAFIK ====== -->
+    <script>
+        // Mengambil elemen <canvas> berdasarkan ID
+        const ctx = document.getElementById('pendudukChart').getContext('2d');
+
+        // Menentukan warna-warni untuk tiap batang grafik
+        const warnaBatang = [
+            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0',
+            '#9966FF', '#FF9F40', '#66FF66', '#FF6666',
+            '#00CED1', '#FFD700', '#BA55D3', '#FF4500',
+            '#1E90FF', '#7FFF00', '#DA70D6', '#FF1493',
+            '#00FA9A', '#FF8C00', '#ADFF2F'
+        ];
+
+        // Membuat grafik batang menggunakan Chart.js
+        const pendudukChart = new Chart(ctx, {
+            type: 'bar', // Jenis grafik
+            data: {
+                // Label sumbu X: nama kecamatan
+                labels: ['Sine','Ngrambe','Jogorogo','Kendal','Geneng','Gerih','Ngawi',
+                         'Paron','Pitu','Widodaren','Karanganyar','Kedunggalar','Padas',
+                         'Bringin','Pangkur','Kwadungan','Karangjati','Kasreman','Ngraho'],
+                datasets: [{
+                    label: 'Jumlah Penduduk (Jiwa)', // Keterangan dataset
+                    // Nilai jumlah penduduk untuk tiap kecamatan
+                    data: [47076,44464,45150,37951,55879,52100,68350,64520,40165,49870,
+                           48700,50400,42800,41050,39880,43500,45320,34890,33937],
+                    backgroundColor: warnaBatang, // Warna tiap batang
+                    borderColor: '#fff', // Garis tepi putih
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { labels: { color: '#fff' } }, // Warna teks legenda
+                    tooltip: {
+                        backgroundColor: '#111', // Latar tooltip
+                        titleColor: '#ffd700',   // Warna judul tooltip
+                        bodyColor: '#fff'        // Warna isi tooltip
+                    }
+                },
+                // Pengaturan sumbu X dan Y
+                scales: {
+                    x: {
+                        ticks: { color: '#fff' }, // Warna label sumbu X
+                        grid: { color: 'rgba(255,255,255,0.1)' } // Garis grid halus
+                    },
+                    y: {
+                        ticks: { color: '#fff' },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    }
+                },
+                // Animasi munculnya grafik
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutBounce' // efek loncat lembut
+                }
+            }
+        });
+    </script>
+</body>
+</html>
